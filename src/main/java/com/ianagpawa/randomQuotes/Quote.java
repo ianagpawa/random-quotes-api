@@ -16,6 +16,7 @@ class Quote {
     Quote() { }
 
     Quote(long id, String content, String name, String source) {
+        this.id = id;
         this.content = content;
         this.name = name;
         this.source = source;

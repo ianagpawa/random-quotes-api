@@ -3,7 +3,6 @@ package com.ianagpawa.randomQuotes;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 class QuoteController {
@@ -25,7 +24,6 @@ class QuoteController {
 
     @PutMapping("/quotes/{id}")
     Quote replaceQuote(@RequestBody Quote newQuote, @PathVariable Long id) {
-
         return repository.findById(id)
                 .map(quote -> {
                     quote.setName(newQuote.getName());

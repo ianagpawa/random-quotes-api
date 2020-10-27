@@ -8,13 +8,20 @@ Clone repo: `git clone https://github.com/ianagpawa/random-quote-api.git`
 ### Prerequesites
 #### Windows
 Install `Java 11 SE` :
-* [Download from DockerHub and follow instructions](https://hub.docker.com/editions/community/docker-ce-desktop-windows/)
-    * May require tweaking Virtualization in BIOS, but is typically not needed on latest systems.
+* [Download OpenJDK for Java SE 11](https://jdk.java.net/)
+    * Create Java folder in `C:\Program Files`.
+    * Extract contents of downloaded openjdk11 folder.
+    * Copy `jdk-11` folder to `C:\Program Files\Java`.
+    * Set Java PATH `C:\Program Files\Java\jdk-11\bin`.
+* [Reference for installation instructions](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html)
 
 Install `Gradle`:
+* [Installation instructions](https://gradle.org/install/)
 
-Spring Boot Initializer
-Web, JPA, H2
+### Dependencies
+* Spring Web
+* Spring Data JPA
+* H2 Database
 
 ## Build project
 In terminal, navigate to folder director and use the following command to build the project:
@@ -29,12 +36,31 @@ gradle clean build
 ```
 
 ## Run service locally
-In terminal, navigate to folder director and use the following command to run the service locally.
+In terminal, navigate to folder director and use the following command to run the service locally on port `8080`.
 ```
 gradle bootRun
 ```
 
-Service will be served on: `localhost:8080`
+### Retrieve all quotes
+```
+curl -v localhost:8080/quotes
+```
+### Retrieve quote by id
+```
+curl -v localhost:8080/quotes/{id}
+```
+### Add new quote
+```
+curl -X POST localhost:8080/quotes -H 'Content-type:application/json' -d '{"name": "{name}", "content": "{content}", "source": "{source}"}'
+```
+### Update quote
+```
+curl -X PUT localhost:8080/quotes/{id} -H 'Content-type:application/json' -d '{"name": "{name}", "content": "{content}", "source": "{source}"}'
+```
+### Delete quote
+```
+curl -X DELETE localhost:8080/quotes/{id}
+```
 
 ## Creator
 

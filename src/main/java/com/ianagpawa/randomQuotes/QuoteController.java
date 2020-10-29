@@ -3,6 +3,7 @@ package com.ianagpawa.randomQuotes;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 @RestController
 class QuoteController {
@@ -40,5 +41,12 @@ class QuoteController {
     @DeleteMapping("/quotes/{id}")
     void deleteEmployee(@PathVariable Long id) {
         repository.deleteById(id);
+    }
+
+    @GetMapping("/random")
+    Quote random() {
+        List<Quote> allQuotes = repository.findAll();
+        Random rand = new Random();
+        return allQuotes.get(rand.nextInt(allQuotes.size()));
     }
 }

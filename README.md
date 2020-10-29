@@ -45,6 +45,10 @@ gradle bootRun
 ```
 curl -v localhost:8080/quotes
 ```
+### Retrieve random quote
+```
+curl -v localhost:8080/random
+```
 ### Retrieve quote by id
 ```
 curl -v localhost:8080/quotes/{id}

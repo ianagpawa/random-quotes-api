@@ -15,14 +15,13 @@ class Quote {
 
     Quote() { }
 
-    Quote(long id, String content, String name, String source) {
-        this.id = id;
+    Quote(String content, String name, String source) {
         this.content = content;
         this.name = name;
         this.source = source;
     }
 
-    public long getId() { return id; }
+    public Long getId() { return this.id; }
 
     public void setId(Long id) { this.id = id; }
 

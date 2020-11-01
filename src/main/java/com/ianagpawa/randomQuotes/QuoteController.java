@@ -46,7 +46,7 @@ class QuoteController {
     @GetMapping("/random")
     Quote random() {
         List<Quote> allQuotes = repository.findAll();
-        Random rand = new Random();
-        return allQuotes.get(rand.nextInt(allQuotes.size()));
+        int index = (new Random()).nextInt(allQuotes.size());
+        return allQuotes.get(index);
     }
 }
